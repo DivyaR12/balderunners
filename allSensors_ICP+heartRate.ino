@@ -7,12 +7,12 @@ ICP101xx sensor0; // Sensor connected to channel 0 of the multiplexer
 ICP101xx sensor1; // Sensor connected to channel 1 of the multiplexer
 ICP101xx sensor2; // Sensor connected to channel 2 of the multiplexer
 ICP101xx sensor3; // Sensor connected to channel 3 of the multiplexer
-String fileName; 
+String fileName;
 
 // AD8232 pins
 const int AD8232Output = A0; // AD8232 output pin connected to Arduino analog pin A0
-const int LOPlus = 10; //pin LO+
-const int LOMinus = 5; //pin LO-
+const int LOPlus = 0; //pin LO+
+const int LOMinus = 1; //pin LO-
 
 void setup() {
   Serial.begin(9600);
@@ -109,7 +109,7 @@ void loop() {
   }
 
   if (dataFile) {
-    data    dataFile.println(dataString);
+    dataFile.println(dataString); // Corrected line
     dataFile.close(); // Close the file to ensure data is saved
     Serial.println("Data written to " + fileName);
   } else {
